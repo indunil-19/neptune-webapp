@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://b19cbf71-ff50-4508-aed1-ae9333eb432d-dev.e1-us-cdp-2.choreoapis.dev/choreosamplebooklist/choreosamplebooklistservice-public/neptune-rest-endpoint-5c6/v1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
