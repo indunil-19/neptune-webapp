@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../App";
 import { useParams } from "react-router-dom";
-import config from "../../config";
+import config from "../../configs";
 
 const Profile = () => {
   const [userProfile, setProfile] = useState(null);

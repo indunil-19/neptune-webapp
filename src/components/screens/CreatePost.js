@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import M from "materialize-css";
 import { useHistory } from "react-router-dom";
-import config from "../../config";
+import config from "../../configs";
 const CretePost = () => {
   const history = useHistory();
   const [title, setTitle] = useState("");

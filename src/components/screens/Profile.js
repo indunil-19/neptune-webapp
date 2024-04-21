@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../App";
-import config from "../../config";
+import config from "../../configs";
 
 const Profile = () => {
   const [mypics, setPics] = useState([]);

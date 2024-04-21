@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../App";
 import M from "materialize-css";
-import config from "../config";
+import config from "../configs";
 const NavBar = () => {
   const searchModal = useRef(null);
   const [search, setSearch] = useState("");

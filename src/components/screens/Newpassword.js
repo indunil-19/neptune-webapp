@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import config from "../../config";
+import config from "../../configs";
 
 import M from "materialize-css";
 const SignIn = () => {
