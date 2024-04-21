@@ -1,5 +1,5 @@
 const config = {
-  choreoApiUrl: window?.configs?.apiUrl ? window.configs.apiUrl : "/",
+  choreoApiUrl: window?.configs?.apiUrl ? window.configs.apiUrl : "/tt",
   cloudinaryApiUrl: "https://api.cloudinary.com/v1_1/cnq/image/upload",
 };
 
