@@ -2,13 +2,16 @@ import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 import M from "materialize-css";
-import config from "../../configs";
 
 const SignIn = () => {
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   const [password, setPasword] = useState("");
   const [email, setEmail] = useState("");
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
+
   const PostData = () => {
     if (
       !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -18,7 +21,7 @@ const SignIn = () => {
       M.toast({ html: "invalid email", classes: "#c62828 red darken-3" });
       return;
     }
-    fetch(`${config.choreoApiUrl}/signin`, {
+    fetch(`${serviceURL}/signin`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
