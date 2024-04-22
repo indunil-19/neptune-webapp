@@ -9,6 +9,9 @@ const NavBar = () => {
   const [userDetails, setUserDetails] = useState([]);
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
     M.Modal.init(searchModal.current);
   }, []);
@@ -60,7 +63,7 @@ const NavBar = () => {
 
   const fetchUsers = (query) => {
     setSearch(query);
-    fetch(`${config.choreoApiUrl}/search-users`, {
+    fetch(`${serviceURL}/search-users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -2,15 +2,19 @@ import React, { useState, useEffect } from "react";
 import M from "materialize-css";
 import { useHistory } from "react-router-dom";
 import config from "../../configs";
+
 const CretePost = () => {
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
     if (url) {
-      fetch(`${config.choreoApiUrl}/createpost`, {
+      fetch(`${serviceURL}/createpost`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

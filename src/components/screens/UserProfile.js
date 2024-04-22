@@ -11,8 +11,11 @@ const Profile = () => {
   const [showfollow, setShowFollow] = useState(
     state ? !state.following.includes(userid) : true
   );
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
-    fetch(`${config.choreoApiUrl}/user/${userid}`, {
+    fetch(`${serviceURL}/user/${userid}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -26,7 +29,7 @@ const Profile = () => {
   }, []);
 
   const followUser = () => {
-    fetch(`${config.choreoApiUrl}/follow`, {
+    fetch(`${serviceURL}/follow`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +59,7 @@ const Profile = () => {
       });
   };
   const unfollowUser = () => {
-    fetch(`${config.choreoApiUrl}/unfollow`, {
+    fetch(`${serviceURL}/unfollow`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

@@ -12,6 +12,9 @@ const SignIn = () => {
     "https://img.freepik.com/free-photo/3d-illustration-teenager-with-funny-face-glasses_1142-50955.jpg?t=st=1713721816~exp=1713725416~hmac=57bd57f896c5a5685bb087b42a9510cb3fc0ed5e266cbb604ff1db0a4cc1a3a6&w=740"
   );
   const [url, setUrl] = useState(undefined);
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
     if (url) {
       uploadFields();
@@ -43,7 +46,7 @@ const SignIn = () => {
       M.toast({ html: "invalid email", classes: "#c62828 red darken-3" });
       return;
     }
-    fetch(`${config.choreoApiUrl}/signup`, {
+    fetch(`${serviceURL}/signup`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

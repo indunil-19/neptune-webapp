@@ -7,9 +7,12 @@ const SignIn = () => {
   const history = useHistory();
   const [password, setPasword] = useState("");
   const { token } = useParams();
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   console.log(token);
   const PostData = () => {
-    fetch(`${config.choreoApiUrl}/new-password`, {
+    fetch(`${serviceURL}/new-password`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

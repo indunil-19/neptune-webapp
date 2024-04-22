@@ -6,8 +6,11 @@ const Profile = () => {
   const [mypics, setPics] = useState([]);
   const { state, dispatch } = useContext(UserContext);
   const [image, setImage] = useState("");
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
-    fetch(`${config.choreoApiUrl}/mypost`, {
+    fetch(`${serviceURL}/mypost`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -30,7 +33,7 @@ const Profile = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          fetch(`${config.choreoApiUrl}/updatepic`, {
+          fetch(`${serviceURL}/updatepic`, {
             method: "put",
             headers: {
               "Content-Type": "application/json",

@@ -6,8 +6,11 @@ import config from "../../configs";
 const Home = () => {
   const [data, setData] = useState([]);
   const { state, dispatch } = useContext(UserContext);
+  const serviceURL = window?.configs?.serviceURL
+    ? window.configs.serviceURL
+    : "/";
   useEffect(() => {
-    fetch(`${config.choreoApiUrl}/allpost`, {
+    fetch(`${serviceURL}/allpost`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -20,7 +23,7 @@ const Home = () => {
   }, []);
 
   const likePost = (id) => {
-    fetch(`${config.choreoApiUrl}/like`, {
+    fetch(`${serviceURL}/like`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +50,7 @@ const Home = () => {
       });
   };
   const unlikePost = (id) => {
-    fetch(`${config.choreoApiUrl}/unlike`, {
+    fetch(`${serviceURL}/unlike`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +78,7 @@ const Home = () => {
   };
 
   const makeComment = (text, postId) => {
-    fetch(`${config.choreoApiUrl}/comment`, {
+    fetch(`${serviceURL}/comment`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +107,7 @@ const Home = () => {
   };
 
   const deletePost = (postid) => {
-    fetch(`${config.choreoApiUrl}//deletepost/${postid}`, {
+    fetch(`${serviceURL}/deletepost/${postid}`, {
       method: "delete",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
